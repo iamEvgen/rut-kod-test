@@ -1,6 +1,7 @@
 .App {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   gap: 20px;
 }
 
@@ -17,6 +18,8 @@
 
 .board__title {
   text-align: center;
+  padding: 0px;
+  margin: 10px auto;
 }
 
 .board__item {

@@ -57,12 +57,18 @@ function App() {
 
   function dropHandler(e, board, item) {
     e.preventDefault();
+    e.stopPropagation();
+    e.target.style.boxShadow = 'none';
     const currentIndex = currentBoard.items.indexOf(currentItem);
     currentBoard.items.splice(currentIndex, 1);
-    const dropIndex = board.items.indexOf(item);
-    board.items.splice(dropIndex + 1, 0, currentItem);
+    if (item) {
+      const dropIndex = board.items.indexOf(item);
+      board.items.splice(dropIndex + 1, 0, currentItem);
+    } else {
+      board.items.push(currentItem);
+    }
     setBoards(
-      board.map((b) => {
+      boards.map((b) => {
         if (b.id === board.id) {
           return board;
         }
@@ -77,16 +83,26 @@ function App() {
   return (
     <div className="App">
       {boards.map((board) => (
-        <div className="board">
+        <div
+          onDragLeave={(e) => dragLeaveHandler(e)}
+          onDragOver={(e) => dragOverHandler(e)}
+          onDragEnd={(e) => dragEndHandler(e)}
+          onDrop={(e) => {
+            dropHandler(e, board);
+          }}
+          key={board.id}
+          className="board"
+        >
           <h2 className="board__title">{board.title}</h2>
           {board.items.map((item) => {
             return (
               <div
+                key={item.id}
                 className="board__item"
                 draggable={true}
-                onDragOver={(e) => dragOverHandler(e)}
-                onDragLeave={(e) => dragLeaveHandler(e)}
                 onDragStart={(e) => dragStartHandler(e, board, item)}
+                onDragLeave={(e) => dragLeaveHandler(e)}
+                onDragOver={(e) => dragOverHandler(e)}
                 onDragEnd={(e) => dragEndHandler(e)}
                 onDrop={(e) => dropHandler(e, board, item)}
               >
