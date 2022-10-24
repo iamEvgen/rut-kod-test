@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/rut-kod-test/static/css/main.1aaf29ed.css",
+    "main.css": "/rut-kod-test/static/css/main.10c7b483.css",
     "main.js": "/rut-kod-test/static/js/main.5fd042eb.js",
     "index.html": "/rut-kod-test/index.html",
-    "main.1aaf29ed.css.map": "/rut-kod-test/static/css/main.1aaf29ed.css.map",
+    "main.10c7b483.css.map": "/rut-kod-test/static/css/main.10c7b483.css.map",
     "main.5fd042eb.js.map": "/rut-kod-test/static/js/main.5fd042eb.js.map"
   },
   "entrypoints": [
-    "static/css/main.1aaf29ed.css",
+    "static/css/main.10c7b483.css",
     "static/js/main.5fd042eb.js"
   ]
 }
